@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'Id'          => 'ID',
+    'Name'        => '名称',
+    'Level'       => '等级值',
+    'Discount'    => '优惠比例',
+    'Present'     => '赠送功能',
+    'Createtime'  => '创建时间',
+    'Updatetime'  => '更新时间',
+    'Weigh'       => '权重',
+    'Status'      => '状态',
+    'Status 1'    => '正常',
+    'Status 2'    => '关闭',
+    'Open'        => '开启',
+    'Close'       => '关闭',
+    'Set_user_blackgold'=> '设置玩家黑金',
+    'Search'      => '搜索',
+    'Search_label' => '账号',
+    'Player_id'   => '玩家账号',
+    'Player_nickname' => '玩家昵称',
+    'Player_diamond' => '账户钻石',
+    'Player_gold' => '账户金币',
+    'Player_follow' => '赠送开关',
+    'Player_blackgold' => '设置黑金等级',
+    'Player_auth' => '管理员权限',
+    'Reset data'  => '重置数据',
+];

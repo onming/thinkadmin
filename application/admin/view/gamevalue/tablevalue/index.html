@@ -1,0 +1,52 @@
+<style>
+    .form-commonsearch .form-group{
+        margin-left:0;margin-right:0;padding:0;
+    }
+    form.form-commonsearch .control-label {
+        padding-right:0;
+    }
+    .tdtitle {
+        margin-bottom:5px;
+        font-weight: 600;
+    }
+</style>
+<div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm" id="channelbar" style="padding-right:0;">
+        <div class="panel panel-default panel-intro">
+            <div class="panel-heading">
+                <div class="panel-lead">
+                    <em>{:__('Table list')}</em>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="tabletree">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-9" id="archivespanel">
+        <div class="panel panel-default panel-intro" style="background: #f1f4f6;padding-top: 0;padding-bottom: 0;box-shadow: none;">
+            {:build_heading()}
+            <div id="myTabContent" class="tab-content" style="background:#fff;padding:15px;">
+                <div class="tab-pane fade active in" id="one">
+                    <div class="widget-body no-padding">
+
+                        <div id="toolbar" class="toolbar">
+                            <a href="javascript:;" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+                            <a href="javascript:;" class="btn btn-success btn-add {:$auth->check('gamevalue/tablevalue/add')?'':'hide'}" title="{:__('Add')}" ><i class="fa fa-plus"></i> {:__('Add')}</a>
+                            <a href="javascript:;" class="btn btn-danger btn-del btn-disabled disabled {:$auth->check('gamevalue/tablevalue/del')?'':'hide'}" title="{:__('Delete')}" ><i class="fa fa-trash"></i> {:__('Delete')}</a>
+                            <a href="javascript:;" class="btn btn-danger btn-import {:$auth->check('gamevalue/tablevalue/import')?'':'hide'}" title="{:__('Import')}" id="btn-import-file" data-url="{:url('ajax/upload?save=0')}" data-mimetype="csv,xls,xlsx" data-multiple="false"><i class="fa fa-upload"></i> {:__('Import')}</a>
+                            <a href="javascript:;" class="btn btn-danger btn-game-reset {:$auth->check('gamevalue/tablevalue/reset')?'':'hide'}" title="{:__('Game reset')}"><i class="fa fa-retweet"></i> {:__('Game reset')}</a>
+                        </div>
+                        <table id="table" class="table table-striped table-bordered table-hover"
+                               data-operate-edit="{:$auth->check('gamevalue/tablevalue/edit')}"
+                               data-operate-del="{:$auth->check('gamevalue/tablevalue/del')}"
+                               width="100%">
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

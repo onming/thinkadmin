@@ -1,0 +1,84 @@
+<style type="text/css">
+    @media (min-width: 768px){
+        .col-sm-8 {
+            width: 85.666667%;
+        }
+    }
+</style>
+<form id="data-form" class="edit-form form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="/admin/gamevalue/tableset/edit" novalidate="novalidate">
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <td>{:__('Data table English name')}</td>
+            <td>
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="hidden" name="row[id]" value="{$row.id}">
+                        <input type="text" name="row[name]" class="form-control" data-tip="{:__('tip ch data name')}" data-rule='required' value="{$row.name}">
+                        <span class="msg-box n-right" style="display: none;"></span>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>{:__('Data table name')}</td>
+            <td>
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="row[title]" class="form-control" data-rule="required" data-tip="{:__('tip data name')}" value="{$row.title}">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>字段名</td>
+            <td>
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <dl class="fieldlist2" data-listidx="0">
+                            <dd>
+                                <ins>{:__('Array key')}</ins>
+                                <ins style="width:145px;">{:__('Array value')}</ins>
+                                <ins>{:__('Field type')}</ins>
+                            </dd>
+                            {volist name="fieldArr" id="vo"}
+                                <dd class="form-inline">
+                                    <input type="text" name="rows[{$key}][name]" class="form-control" data-rule="required" size="10" value="{$vo.name}" />
+                                    <input type="text" name="rows[{$key}][title]" class="form-control" size="15" value="{$vo.title}" />
+                                    <select name="rows[{$key}][type]" class="form-control">
+                                        {volist name="typelist" id="to"}
+                                        {if condition="$to.type eq $vo.type"}
+                                        <option value="{$to.type}" selected>{$to.name}</option>
+                                        {else /}
+                                        <option value="{$to.type}">{$to.name}</option>
+                                        {/if}
+
+                                        {/volist}
+
+                                    </select>
+                                    <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span>
+                                    <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span>
+                                </dd>
+                            {/volist}
+                            <dd><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a></dd>
+                            <textarea class="form-control hide" cols="30" rows="5"></textarea>
+                        </dl>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+    </table>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

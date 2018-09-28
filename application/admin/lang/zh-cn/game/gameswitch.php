@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'Channel list'                       => '渠道列表',
+    'Choose game'                        => '请选择游戏',
+    'Channel_id'                         => '渠道',
+    'Channel_name'                       => '渠道',
+    'Scene_name'                         => '场景',
+    'Vip_level'                          => 'VIP等级',
+    'Timespace'                          => '时间范围',
+    'Switch'                             => '开关',
+    'Status 0'                           => '关闭',
+    'Status 1'                           => '开启',
+    'Weigh'                              => '权重',
+    'Status'                             => '状态',
+    'Empty channel id'                   => '渠道不能为空',
+    'Scene not exists'                   => '场景不存在',
+    'Activity start time'                => '开始时间',
+    'Activity end time'                  => '结束时间',
+    'Sync'                               => '一键同步',
+    'Are you sure you want to sync?'     => '确认同步渠道场景开关？',
+    'Createtime'                         => '创建时间',
+    'Updatetime'                         => '更新时间',
+    'Set to normal'                      => '设为开启',
+    'Set to hidden'                      => '设为关闭',
+    'Reset data'                         => '重置数据',
+    'Are you sure you want to reset server?' => '确定重置服务器数据？',
+];

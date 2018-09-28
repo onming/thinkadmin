@@ -1,0 +1,76 @@
+<form id="setting-form" class="form-horizontal" role="form" data-toggle="validator" method="POST">
+
+    <input type="hidden" name="player_id" value="{$userinfo.pid}">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Player_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <span>{$userinfo.pid}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Player_nickname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <span>{$userinfo.nickname}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Player_diamond')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <span>{$userinfo.card}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Player_gold')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <span>{$userinfo.gold}</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Player_follow')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select name="follow" data-rule="required" class="form-control">
+                {foreach name="follow_list" item="vo"}
+                <option value="{$vo.id}" {if $vo.id == $userinfo.follow}selected{/if}>{$vo.name}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Player_blackgold')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select name="blackgold" data-rule="required" id="parent_id" class="form-control">
+                <option value="0">{:__('None')}</option>
+                {foreach name="blackgold_list" item="vo"}
+                <option value="{$vo.level}" {if $vo.level==$userinfo.blackgold}selected{/if}>{$vo.name}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Player_auth')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select name="adminlv" data-rule="required" class="form-control">
+                {foreach name="auth_list" item="vo"}
+                <option value="{$vo.id}" {if $vo.id==$userinfo.adminlv}selected{/if}>{$vo.name}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <a href="javascript:void(0)" class="btn btn-success btn-embossed" id="setting_submit">{:__('Submit')}</a>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+stages:
+  - deploy
+  
+production_job:
+    stage: deploy
+    script:
+      - sh /usr/local/script/gitlab_runner.sh thinkadmin production
+    only:
+      - production
+    tags:
+      - web
+      
+test_job:
+    stage: deploy
+    script:
+      - sh /usr/local/script/gitlab_runner.sh thinkadmin_test test
+    only:
+      - test
+    tags:
+      - web
+
+dev_job:
+    stage: deploy
+    script:
+      - sh /usr/local/script/gitlab_runner.sh thinkadmin_dev dev
+    only:
+      - dev
+    tags:
+      - web

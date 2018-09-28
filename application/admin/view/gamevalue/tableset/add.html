@@ -1,0 +1,65 @@
+<style type="text/css">
+    @media (min-width: 768px){
+        .col-sm-8 {
+            width: 78.666667%;
+        }
+    }
+</style>
+<form id="data-form" class="edit-form form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="/admin/gamevalue.tableset/add" novalidate="novalidate">
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <td>{:__('Data table English name')}</td>
+            <td>
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="row[name]" value="" class="form-control" data-tip="{:__('tip ch data name')}" data-rule='required'>
+                        <span class="msg-box n-right" style="display: none;"></span>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>{:__('Data table name')}</td>
+            <td>
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="row[title]" value="" class="form-control" data-rule="required" data-tip="{:__('tip data name')}">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>字段名</td>
+            <td>
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <dl class="fieldlist2" data-listidx="0">
+                            <dd>
+                                <ins>{:__('Array key')}</ins>
+                                <ins style="width:145px;">{:__('Array value')}</ins>
+                                <ins>{:__('Field type')}</ins>
+                            </dd>
+
+                            <dd><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a></dd>
+                            <textarea class="form-control hide" cols="30" rows="5">{"backend":"zh-cn","frontend":"zh-cn"}</textarea>
+                        </dl>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+    </table>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
