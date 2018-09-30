@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use app\common\controller\Backend;
 use think\Db;
+use think\Cache;
 use thinkadmin\Qcloud;
 
 /**
@@ -44,22 +45,9 @@ class Test extends Backend
      */
     public function debug()
     {
-        $Qcloud = new Qcloud();
-        $rs = $Qcloud->putObject("csfc-test-1256260708", "test/test.txt", "test111111");
-
-        dump($rs);
-        $rs = $Qcloud->listObjects("csfc-test-1256260708");
-        halt($rs);
-
-        $this->listenSql();
-        $data = Db::name('game')->where('id', '=', 7)->find();
-        halt($data['game_id']);
-
-        $rs = $this->resetGameServerData("exchange", "get_packet_config_list");
-        halt($rs);
-
-        $data = ['action' => 'debug', 'time' => time(), 'data' => [1,2,3,4,5]];
-        $rs = Db::connect("mongo_db")->table("test")->insert($data);
+        $cache = Cache::store('redis');
+        $cache->set('name','value'.date('H:i:s'));
+        $rs = $cache->get('name');
         halt($rs);
     }
     

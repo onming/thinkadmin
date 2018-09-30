@@ -175,14 +175,31 @@ return [
     // | 缓存设置
     // +----------------------------------------------------------------------
     'cache'                  => [
-        // 驱动方式
-        'type'   => 'File',
-        // 缓存保存目录
-        'path'   => CACHE_PATH,
-        // 缓存前缀
-        'prefix' => '',
-        // 缓存有效期 0表示永久缓存
-        'expire' => 0,
+        // 使用复合缓存类型
+        'type'  =>  'complex',
+        // 默认使用的缓存
+        'default'   =>  [
+            // 驱动方式
+            'type'   => 'file',
+            // 设置不同的缓存保存目录
+            'path'   => CACHE_PATH,
+            // 缓存前缀
+            'prefix' => '',
+            // 缓存有效期 0表示永久缓存
+            'expire' => 300,
+        ],
+        // redis缓存
+        'redis'   =>  [
+            // 驱动方式
+            'type'   => 'redis',
+            'host'   => Env::get('redis.hostname', '127.0.0.1'),
+            'port'   => Env::get('redis.hostport', '6379'),
+            'password'   => Env::get('redis.password', ''),
+            // 缓存前缀
+            'prefix' => Env::get('redis.prefix', 'ta_'),
+            // 缓存有效期 0表示永久缓存
+            'expire' => 300,
+        ],
     ],
     // +----------------------------------------------------------------------
     // | 会话设置
@@ -192,7 +209,7 @@ return [
         // SESSION_ID的提交变量,解决flash上传跨域
         'var_session_id' => '',
         // SESSION 前缀
-        'prefix'         => 'think',
+        'prefix'         => 'thinkadmin',
         // 驱动方式 支持redis memcache memcached
         'type'           => '',
         // 是否自动开启 SESSION
